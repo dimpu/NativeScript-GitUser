@@ -23,8 +23,8 @@ export class AppComponent  {
         }
         this.isLoading = true;
         this.github.getUsers(this.username).subscribe((users) => {
-          this.users = users;
-          this.isLoading = false;
+            this.users = users;
+            this.isLoading = false;
         });
     }
 }
