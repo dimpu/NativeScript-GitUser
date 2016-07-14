@@ -1,0 +1,21 @@
+<StackLayout>
+    <TextField hint="Username"  [(ngModel)]="username"></TextField>
+    <Button text="Search" (tap)="onSearchTap()"></Button>
+    <GridLayout rows="auto, *">
+        <ListView [items]="users" row="1">
+            <template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <StackLayout>
+                    <GridLayout rows="auto,auto" columns="auto, *">
+                        <Image src="{{item.avatar_url}}" row="0" col="0" rowSpan="2" width="100" height="100"></Image>
+                        <Label text="{{item.login}}" row="0" col="1" class="login"></Label>
+                        <StackLayout row="1" col="1" orientation="vertical">
+                            <Label text="Score:"  class="score-label"></Label>
+                            <Label text="{{item.score}}"  class="score"></Label>   
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+            </template>
+        </ListView>
+        <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    </GridLayout>
+</StackLayout>
